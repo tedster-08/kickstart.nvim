@@ -58,7 +58,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',          opts = {} },
+  { 'folke/which-key.nvim',               opts = {} },
   { -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -112,10 +112,14 @@ require('lazy').setup({
 
   { 'tpope/vim-commentary' },
   { 'norcalli/nvim-colorizer.lua' },
-  { 'windwp/nvim-autopairs',         opts = {} },
+  { 'windwp/nvim-autopairs',              opts = {} },
+  { 'junegunn/rainbow_parentheses.vim' },
+  { 'tridactyl/vim-tridactyl' },
+  { 'jose-elias-alvarez/buftabline.nvim', opts = {} },
+  { 'voldikss/vim-floaterm' },
 
   -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'nvim-telescope/telescope.nvim',      version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
@@ -158,7 +162,8 @@ require('lazy').setup({
 
 vim.o.hlsearch = false
 vim.wo.number = true
-vim.wo.cursorlineopt = "both"
+vim.wo.cursorline = true
+vim.wo.cursorlineopt = "number"
 vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
 vim.o.breakindent = true
@@ -171,6 +176,17 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
+vim.o.hidden = true
+vim.o.ruler = true
+vim.o.cmdheight = 2
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.formatoptions = "jql"
+vim.o.showmode = false
+vim.o.scrolloff = 8
+
+vim.api.nvim_set_hl(0, "CursorLineNr", { foreground = "#ebcb8b", bold = true })
+
 
 -- [[ Basic Keymaps ]]
 
